@@ -1,5 +1,6 @@
 var Book = require('../models/books');
 
+//Brings up the index view of books
 exports.index = function(req, res, next) {
 	let locals = {
 		title: 'List of Books'
@@ -15,7 +16,7 @@ exports.index = function(req, res, next) {
 	});
 };
 
-//For Show
+// Brings up the show view for a single book object
 exports.show = function(req, res, next){
 	let locals = {
 		title: 'Books'
@@ -32,7 +33,7 @@ exports.show = function(req, res, next){
 		next(err)
 	})
 };
-// For the New
+// Getting the new view
 exports.new = function(req, res){
 	let locals = {
 		title: 'New Book'
@@ -58,7 +59,7 @@ exports.edit = function(req, res, next){
 	})
 };
 
-//For the Create
+//For creating a new book object
 exports.create = function(req, res, next) {
 	Book.create({
 		title:req.body.title,
@@ -75,7 +76,7 @@ exports.create = function(req, res, next) {
 	})
 };
 
-//For the update
+//For updating a book
 exports.update = function(req, res, next){
 	Book.findById(req.params.id)
 	.then(function(book){
@@ -98,7 +99,7 @@ exports.update = function(req, res, next){
 	})
 };
 
-//For the delete
+//Deletes a book from the database
 exports.delete = function(req, res){
 	Book.remove({
 		_id: req.body.id
