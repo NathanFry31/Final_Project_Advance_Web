@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title><%= title %></title>
-	<link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-	<div class="container">
-		<header>
-			<div class="container2">
-			<h1><%= title %></h1>
-			</div>
-		</header>
+<% include ../partials/header %>
 		<section>
 			<form action="/books" method="post" novalidate>
 				<fieldset>
@@ -20,6 +8,10 @@
 						<input type="text" class="form-control" id="book_title" name="title" placeholder="Your Book Title" required>
 					</div>
 					<div class="form-group">
+						<label for="author">Author</label>
+						<input type ="text" class="form-control" id="book_author" name="author" placeholder="The Authors Name" required>
+					</div>
+					<div class="form-group">
 						<label for="cover">Cover</label>
 						<input type="text" class="form-control" id="book_cover" name="cover" placeholder="Is you book hardcover or paperback?" required>
 					</div>
@@ -27,11 +19,14 @@
 						<label for="price">Price</label>
 						<input type="Number" class="form-control" id="book_price" name="price" placeholder="What is the price of your book in CAD?" step="0.01" min="0" required>
 					</div>
+					<div class="form-group">
+						<label for="releaseDate">Release Date</label>
+						<input type="Date" class="form-control" id="book_date" name="releaseDate" placeholder="When did the book come out?" required>
+					</div>
 				</fieldset>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Create Book</button>
 				</div>
 			</form>
 		</section>
-</body>
-</html>
+<% include ../partials/footer%>

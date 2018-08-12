@@ -9,9 +9,17 @@ var bookSchema = new mongoose.Schema({
 		type: String,
 		required: 'Is it hardcover or paperback'
 	},
+	author:{
+		type: String,
+		required:'Well someone had to write this'
+	},
 	price:{
 		type:Number,
 		required:'Enter a dollar value in CAD'
+	},
+	releaseDate:{
+		type:Date,
+		required:'It had to come out. If not. How did you get it?'
 	}
 })
 module.exports = mongoose.model('Book', bookSchema)

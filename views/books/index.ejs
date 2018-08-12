@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title><%= title %></title>
-	<link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-	<div class="container">
-		<header>
-			<div class="container2">
-			<h1><%= title %></h1>
-			</div>
-		</header>
+<% include ../partials/header %>
 		<section>
-			<div>
-				<a href="/books/new">Add a New Book!</a>
-			</div>
 			<div class="row">
 				<% for(let book of books) { %>
 					<div class = "col-sm-6">
 						<div class = "card">
-							<h5>
+							<h3>
 								<%=book.title %>
-							</h5>
+							</h3>
+							<p>
+								<%=book.author %>
+							</p>
 							<p>
 								<%=book.cover %>
 							</p>
 							<p>
 								<%=book.price %>
+							</p>
+							<p>
+								<%=book.releaseDate %>
 							</p>
 							<div class="actions">
 							<form action = "/books/<%= book.id %>">
@@ -47,5 +38,4 @@
 				<% } %>
 			</div>
 		</section>
-</body>
-</html>
+<% include ../partials/footer%>

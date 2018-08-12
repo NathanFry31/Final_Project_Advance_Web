@@ -62,8 +62,10 @@ exports.edit = function(req, res, next){
 exports.create = function(req, res, next) {
 	Book.create({
 		title:req.body.title,
+		author:req.body.author,
 		cover:req.body.cover,
-		price:req.body.price
+		price:req.body.price,
+		releaseDate:req.body.releaseDate
 	})
 	.then(function(){
 		res.redirect('/books')
@@ -78,8 +80,10 @@ exports.update = function(req, res, next){
 	Book.findById(req.params.id)
 	.then(function(book){
 		book.title = req.body.title;
+		book.author = req.body.author;
 		book.cover = req.body.cover;
 		book.price = req.body.price;
+		book.releaseDate = req.body.releaseDate;
 
 		book.save()
 		.then(function(){
